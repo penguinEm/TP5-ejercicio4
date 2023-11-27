@@ -50,3 +50,4 @@ reloj();
 setInterval(reloj, 1000);
 
 fecha();
+setInterval(fecha, 86400000);
