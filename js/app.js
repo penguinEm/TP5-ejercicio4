@@ -1,24 +1,23 @@
 /* 4- Crear una web con un reloj que muestre la siguiente información:
  **Jueves 29 de Octubre del 2015 (dia, numero, mes año)
- **hora, segundos, am o pm, ms
+ **horas, minutos, segundos, am o pm,
  */
 
-/* ------------------------------------------variables globales------------------------------------------------------- */
+
 
 // Obtener la fecha actual
+
+
 const fechaActual = new Date();
-const opcionesDeFormato = { year: 'numeric', month: 'long', day: 'numeric' };
-const fechaFormateada = fechaActual.toLocaleDateString('es-ES', opcionesDeFormato);
-
-
-
+const opcionesDeFormato = { weekday:"long", year: "numeric", month: "long", day: "numeric" };
+const fechaFormateada = fechaActual.toLocaleDateString("es-ES", opcionesDeFormato).toUpperCase();
 /* ---------------------------------------funciones ------------------------------------------------------------------ */
 
 const fecha = () => {
-  const fechaObtenida = document.getElementById("fecha")
-  console.log(fechaObtenida)
-}
-
+  const fechaObtenida = document.getElementById("fecha");
+  fechaObtenida.innerHTML = fechaFormateada;
+  fechaObtenida.className = "display-4 gradiente";
+};
 const reloj = () => {
   const reloj = document.getElementsByClassName("reloj")[0];
   const fechaActual = new Date();
@@ -49,4 +48,5 @@ const reloj = () => {
 
 reloj();
 setInterval(reloj, 1000);
-/* --------------------------------------- logica extra --------------------------------------------------------------- */
+
+fecha();
